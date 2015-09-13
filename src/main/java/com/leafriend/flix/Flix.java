@@ -57,9 +57,6 @@ public class Flix {
                 if (options.isVerbose()) {
                     String name = file.getName();
                     System.out.print(name);
-                    // try { Thread.sleep(100); } catch (InterruptedException e)
-                    // {
-                    // // TODO Auto-generated catch block e.printStackTrace(); }
                     for (int i = 0; i < name.length(); i++)
                         System.out.print("\b");
                     for (int i = 0; i < name.length(); i++)
