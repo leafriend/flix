@@ -31,7 +31,21 @@ public class Flix {
     }
 
     public void run() {
+        try {
 
+            if (options.isVerbose()) {
+                System.out.print(options.getScanDirectory().getCanonicalPath());
+            }
+            traverse(options.getScanDirectory());
+
+            System.out.print(options.getOutputFile().getCanonicalPath()
+                    + " is generated for " + fileCount + " file"
+                    + (fileCount > 1 ? "s" : "") + " in " + directoryCount
+                    + " director" + (directoryCount > 1 ? "ies" : "y"));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void traverse(File dir) throws IOException {
