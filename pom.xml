@@ -38,6 +38,7 @@
                 <configuration>
                     <archive>
                         <manifest>
+                            <mainClass>com.leafriend.flix.Flix</mainClass>
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                             <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                         </manifest>
