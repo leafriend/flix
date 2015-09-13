@@ -1,20 +1,22 @@
 package com.leafriend.flix;
 
-import java.io.Console;
-
 public class Flix {
 
     private Options options;
 
     public static void main(String[] args) {
 
-        Console console = System.console();
+        Options options = new Options();
 
-        console.printf("Hello, FLiX\n");
+        new Flix(options).run();
+
+    }
+
     public Flix(Options options) {
         this.options = options;
     }
 
+    public void run() {
 
     }
 
