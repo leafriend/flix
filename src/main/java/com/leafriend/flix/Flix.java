@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.CreationHelper;
@@ -26,6 +27,8 @@ public class Flix {
 
     private List<File> files;
 
+    private String fontName;
+
     public static void main(String[] args) {
 
         Options options = new Options();
@@ -39,6 +42,16 @@ public class Flix {
         this.directoryCount = 0;
         this.fileCount = 0;
         this.files = new ArrayList<>();
+
+        Locale locale = Locale.getDefault();
+        if (Locale.KOREAN.getLanguage().equals(locale.getLanguage()))
+            this.fontName = "맑은 고딕";
+        else if (Locale.JAPANESE.getLanguage().equals(locale.getLanguage()))
+            this.fontName = "ＭＳ Ｐゴシック";
+        // this.fontName = "MS Pゴシック";
+        else
+            this.fontName = XSSFFont.DEFAULT_FONT_NAME;
+
     }
 
     public void run() {
@@ -108,6 +121,7 @@ public class Flix {
         XSSFFont linkFont = wb.createFont();
         linkFont.setUnderline(XSSFFont.U_SINGLE);
         linkFont.setColor(IndexedColors.BLUE.getIndex());
+        linkFont.setFontName(fontName);
         linkStyle.setFont(linkFont);
 
         {
